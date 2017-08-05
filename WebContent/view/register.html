@@ -1,0 +1,114 @@
+<P> Hello register</P>
+
+
+<div ng-controller="UserController as ctrl">
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title text-center"> Fill Registration From </h3></div>
+<div class="panel-body">
+
+ <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                     
+                     
+                      
+                     
+                      
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-danger" for="name">Name</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.user.name" id="name" class="name form-control input-sm" placeholder="Enter your name" required ng-minlength="3" autofocus/>
+                                  <div class="has-error" ng-show="myForm.$dirty">
+                                      <span ng-show="myForm.uname.$error.required">This is a required field</span>
+                                      <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
+                                      <span ng-show="myForm.uname.$invalid">This field is invalid </span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                         
+                       
+                       <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-success" for="password">Password</label>
+                              <div class="col-md-7">
+                                  <input type="password" ng-model="ctrl.user.password" id="password" class="form-control input-sm" placeholder="Enter your password. [This field is validation free]" required/>
+                              </div>
+                          </div>
+                      </div>
+ 
+                       
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-default" for="address">Address</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.user.address" id="address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]" required/>
+                              </div>
+                          </div>
+                      </div>
+ 
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-info" for="email">Email</label>
+                              <div class="col-md-7">
+                                  <input type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
+                                  <div class="has-error" ng-show="myForm.$dirty">
+                                      <span ng-show="myForm.email.$error.required">This is a required field</span>
+                                      <span ng-show="myForm.email.$invalid">This field is invalid </span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+<!-- ======================================================================================= -->
+                      
+                       <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-warning" for="gender">Gender</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.user.gender" id="gender" class="form-control input-sm"  placeholder="Enter your gender" required/>
+                                    <input type="radio" ng-model="ctrl.user.gender" value="male">male
+                                    <input type="radio" ng-model="ctrl.user.gender" value="female">female
+                                    <input type="radio" ng-model="ctrl.user.gender" value="other">other
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+                      
+                      
+                       <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-default" for="dob">DateOfBirth</label>
+                              <div class="col-md-7">
+                                  <input type="date" ng-model="ctrl.user.dob" id="dob" class="form-control input-sm" placeholder="Enter your dateofbirth" required/>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+<!-- ================================================================================================ -->
+                        <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-primary" for="mobile">Mobile</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.user.mobile" id="mobile" class="form-control input-sm" placeholder="Enter your mobile number." pattern = "[0-9]{10}" required/>
+                              </div>
+                          </div>
+                      </div>
+ 
+ 
+                    <div class="row">
+							<div class="form-actions floatRight">
+								<input type="submit" value="Register"
+									class="btn btn-primary btn-sm">
+								<button type="button" ng-click="ctrl.reset()"
+									class="btn btn-warning btn-sm">Reset Form</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div></div>
+
+</div></div></div>

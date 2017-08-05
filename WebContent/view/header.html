@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="navbar-header">
    
-      <a class="navbar-brand" href="#/">Collaboration !!</a>
+      <a class="navbar-brand" href="#/home">Collaboration !!</a>
      
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#/home">Home</a></li>
-       <li><a href="#/login">Login</a></li>
+       
      
     
     <li class="dropdown">
@@ -15,12 +15,16 @@
     </span>
     </a>
       <ul class="dropdown-menu">
-          <li><a href="#blog">List Blog</a></li>
-          <li><a href="#blog-create">Create Blog</a></li>
-          <li><a href="#blog-manage">Manage Blog</a></li>
-          <li><a href="#myBlog">My Blog</a></li>
+          <li><a href="#Blog">List Blog</a></li>
+         
          
         </ul>
-     
-      </li>
+     </li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+    <li ng-show="currentUser.id"><a href="#profile"><span></span> Welcome {{currentUser.name}} !!!</a></li>
+      <li ng-hide="currentUser.id"><a href="#register"><span></span> Sign Up</a></li>
+      <li ng-hide="currentUser.id"><a href="#login"><span></span> Login</a></li>
+      <li ng-show="currentUser.id"><a ng-click="logout()" href="#logout"><span></span> Logout</a></li>
+    </ul>
   </div>
