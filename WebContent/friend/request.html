@@ -1,0 +1,77 @@
+
+
+
+
+
+
+<br>
+<p>hello from request</p>
+
+
+<div class="container"
+	ng-init="getMyfriendsreq();">
+ <div class="col-sm-12" ng-repeat="userDetails in users"
+				ng-if="userDetails.id != currentUser.id && showFriends(userDetails.id) == 'aa' ">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				<div class="col-sm-8">
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+
+				</div>
+				<div class="col-sm-2">
+
+					<a ng-click="sendRequest(userDetails.id)" href="#users">Friend
+						&nbsp;&nbsp;<span style="color: green"
+						class="glyphicon glyphicon-ok"></span>
+					</a>
+<div ng-show="showthis"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+	<a ng-click="unfriend(userDetails.id); showthis=true" href="#users" >Unfriend <span class="glyphicon glyphicon-trash"></span></a>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+ </div>
+ 
+
+
+
+
+
+
+
+<!-- <div class="container"
+	ng-init=" getMyfriendsreq()">
+<h2  class="text-center">Confirm Request</h2>
+	<div class="row">
+
+		<div class="shadow">
+			<div class="col-sm-12" ng-repeat="userDetails in users" 
+				ng-if="userDetails.id != currentUser.id && show(userDetails.id) == 'cc' ">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				<div class="col-sm-8">
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+
+				</div>
+				<div class="col-sm-2">
+				
+                     <div ng-init="showme=false" ng-show="showme"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+					<a  ng-click="acceptRequest(userDetails.id);showme=true" href="#users">CONFIRM</a> 
+                    <a  ng-click="rejectfriendRequest(userDetails.id)" href="#users"> | REJECCT</a>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+
+
+
+		</div>
+	</div></div> -->

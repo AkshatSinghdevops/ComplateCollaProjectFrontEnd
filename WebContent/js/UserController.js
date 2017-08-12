@@ -75,6 +75,20 @@ myApp
 								errorMessage : '',
 								imageUrl : ''
 							};
+							/*this.user = {
+									id : '',
+									name : '',
+									password : '',
+									mobile : '',
+									address : '',
+									email : '',
+									isOnline : '',
+									dob :'',
+									role : '',
+									errorCode : '',
+									errorMessage : '',
+									imageUrl : ''
+								};*/
 							
 							$scope.users = []; // json array
 

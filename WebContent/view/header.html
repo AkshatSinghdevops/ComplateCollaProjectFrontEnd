@@ -5,7 +5,7 @@
      
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#/home">Home</a></li>
+      <li><a href="#aboutus">AboutUs</a></li>
        
      
     
@@ -16,13 +16,40 @@
     </a>
       <ul class="dropdown-menu">
           <li><a href="#Blog">List Blog</a></li>
-         
+          <li><a href="#createBlog">Add New Blog</a></li>
          
         </ul>
      </li>
+     
+     <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+    Forum<span class="caret">
+    </span>
+    </a>
+      <ul class="dropdown-menu">
+          <li><a href="#myforum">Forum-List</a></li>
+       
+         
+        </ul>
+     </li>
+     
+     <li><a href="#profile">Profile</a></li>
+     
+      <!-- <li class="dropdown">
+      <a data-toggle="dropdown" href="">
+      Friends<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+      <li><a href="#users">All Users</a></li>
+      <li><a href="#viewrequest">View-Request</a></li>
+      <li><a  href="#friends">Friends</a></li>
+      </ul> -->
+      
+     
+     
+     
      </ul>
      <ul class="nav navbar-nav navbar-right">
-    <li ng-show="currentUser.id"><a href="#profile"><span></span> Welcome {{currentUser.name}} !!!</a></li>
+    <li ng-show="currentUser.id"><a href="#profile" class="text-success"><span></span> Welcome {{currentUser.name}} !!!</a></li>
       <li ng-hide="currentUser.id"><a href="#register"><span></span> Sign Up</a></li>
       <li ng-hide="currentUser.id"><a href="#login"><span></span> Login</a></li>
       <li ng-show="currentUser.id"><a ng-click="logout()" href="#logout"><span></span> Logout</a></li>

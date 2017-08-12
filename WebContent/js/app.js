@@ -18,11 +18,51 @@ myApp.config(function($routeProvider){
 	.when('/profile',{
 		templateUrl:'view/profile.html'
 	})
-	.when('/blog',{
+	.when('/Blog',{
+		controller:'BlogController',
 		templateUrl:'blog/Blog.html'
 	})
+	.when('/createBlog',{
+		controller:'BlogController',
+		templateUrl:'blog/createBlog.html'
+	})  
 	.when('/register',{
 		templateUrl:'view/register.html'
+	})
+	.when('/aboutus',{
+		templateUrl:'view/aboutus.html'
+	})
+	.when('/profile',{
+		templateUrl:'view/my_profile.html'
+	})
+	.when('/myforum',{
+		templateUrl:'forum/myforum.html'
+	})
+	.when('/forums/:param1',{
+		controller:'MessageForumController',
+		templateUrl:'forum/singleForum.html'
+	}) 
+	.when('/users',{
+		controller:'friendController',
+		templateUrl:'friend/people.html'
+	})
+	.when('/viewrequest',{
+		controller:'friendController',
+		templateUrl:'friend/request.html'
+	})
+	.when('/friends', {
+		controller : 'friendController',
+		templateUrl : 'friend/Friends.html'
+	})
+	.when('/chatbox/:param1', {
+		
+		controller : 'friendController',
+		templateUrl : 'friend/chat.html'
+	})
+    .when('/chat', {
+		controller : 'ChatCtrl',
+		
+		templateUrl : 'chat/chat.html'
 	})
 	.otherwise('/home',{
 		templateUrl:'view/home.html'
@@ -51,8 +91,8 @@ myApp.run(function($cookieStore, $rootScope, $location, UserService, $http) {
 		// redirect to login page if not logged in and trying to access a
 		// restricted page
 
-		var userPages = [ '/users', '/blog-create', '/job', '/profile',
-				'/myBlog', '/viewFriendRequest', '/chat' ]
+		var userPages = [ '/users', '/createBlog', '/job', '/profile',
+				'/Blog', '/viewFriendRequest', '/chat' ,'/myforum']
 		var adminPages = [ "/blog-manage", "/job-manage", "/create_job" ]
 
 		var currentPage = $location.path()

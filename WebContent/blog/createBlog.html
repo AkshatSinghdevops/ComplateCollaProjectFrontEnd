@@ -1,0 +1,44 @@
+
+ <div class="generic-container text-center" ng-controller="BlogController as ctrl">
+  <div class="panel panel-default">
+   <div class="panel-heading"><span class="lead">Create New Blogs</span></div><br>
+   <div class="formcontainer">
+    <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+     <input type="hidden" ng-model="ctrl.blog.id" />
+           <div class="row">
+            <div class="form-group col-md-12">
+            <label class="col-md-2 control-lable btn btn-primary btn-sm" for="blog_name">Blog Title:</label>
+               <div class="col-md-7">
+               <input type="text" ng-model="ctrl.blog.blog_name" id="blog_name" class="title form-control input-sm" placeholder="Enter your blog title" required/>
+               </div> </div></div>
+           <div class="row">
+            <div class="form-group col-md-12">
+             <label class="col-md-2 control-lable btn btn-primary btn-sm" for="description">Description:</label>
+               <div class="col-md-7">
+               <textarea rows="8" cols="80" ng-model="ctrl.blog.description" id="description" class="form-control input-sm" placeholder="Enter your blog description." required>
+                </textarea> </div></div> </div> 
+        <div class="row">
+         <div class="form-actions floatRight  text-center">
+          <input type="submit"  value="Create-Blog" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+          <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Blog</button>
+           </div> </div> </form>
+                       
+                       
+                       <br><br>
+                       <!-- <h3  >Created By <h2 ng-repeat="u in ctrl.blogs" class="text-warning">{{u.user_id}}</h2></h3> -->
+                       <div class="container">
+                  <table class="table">
+
+<tr ng-repeat="u in ctrl.blogs"><td><table><tr>
+</tr>
+<tr><td><table><tr><td> </td></tr>
+{{u.user_id}}
+<tr><td ng-bind="u.title">{{ u.blog_name }}</td><tr>
+<tr><td ng-bind="u.description">{{ u.description }}</td></tr>
+<tr><td><table>
+<th><td><button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-primary custom-width">Edit</button></td> </th>
+<th><td> <a href="manage_blog_remove?id={{ u.id }}"  onclick="return confirm('Are you sure?')">Remove</a> </td></th>
+ </table></td> </tr>
+</table></td><tr></table></td>
+</tr></table>
+               </div>  </div> </div></div>

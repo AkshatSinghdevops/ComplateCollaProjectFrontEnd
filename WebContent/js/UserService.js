@@ -46,7 +46,7 @@ myApp.service('UserService', ['$http', '$q','$rootScope', function($http, $q,$ro
          
             fetchAllUsers: function() {
             	console.log("calling fetchAllUsers ")
-                    return $http.get(BASE_URL+'/users')
+                    return $http.get('http://localhost:8080/BackEndDemo'+'/users')
                             .then(
                                     function(response){
                                         return response.data;

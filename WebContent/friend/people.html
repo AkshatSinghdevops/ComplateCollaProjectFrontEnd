@@ -1,0 +1,173 @@
+
+
+<!-- <div class="container"
+	ng-init="fetchAllUsers();">
+	
+ <div class="text-center">
+ <input type='text' style="border-radius: 50px;" ng-model='searchtext' placeholder='Search People You May Know' autofocus/>
+ </div><br><br>
+ 
+ <div class="col-sm-12" ng-repeat="userDetails in users | filter:searchtext" 
+				ng-if="userDetails.id != currentUser.id">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				<div class="col-sm-8">
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+                 </div>
+<div class="col-sm-2">
+
+					<a ng-click="sendRequest(userDetails.id)" href="#users">SEND Request &nbsp;&nbsp;
+					</a>
+
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+				</div></div></div> -->
+
+<!-- ################################################################################################################################################################# -->
+ 
+ 
+ 
+ 
+ 
+ <head>
+
+<!-- <style>
+.show_text {
+color:#20B2AA;
+}
+.user_search {
+color:#20B2AA;
+}
+#loading-bar .bar {
+    background: #20B2AA;
+   position:fixed;
+  }
+ .dropdown-menu > li > a:link {
+ color:#20B2AA !important;
+ }
+  col-sm-12 > a:link {
+    color: #20B2AA;
+}
+ a {
+    color: #20B2AA !important;
+    font-weight: bold;
+}
+hr {
+      border-top: 2px solid #20B2AA !important;
+}
+
+body {
+   color:#ffffff !important;
+    filter: alpha(opacity=50);
+    background: url(images/user.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+
+</style> -->
+<script>
+document.onreadystatechange = function () {
+	  var state = document.readyState
+	  if (state == 'complete') {
+	      setTimeout(function(){
+	          document.getElementById('interactive');
+	        // document.getElementById('load').style.visibility="hidden";
+	         document.getElementById("load").style.visibility = "hidden";
+	      },1000);
+	  }
+	}
+</script>
+
+</head>
+<div class="container"
+	ng-init="fetchAllUsers(); getMyfriendsreq();showFriend()">
+
+	
+	<h2  class="text-center">Confirm Request</h2>
+	<div class="row">
+
+		<div class="shadow">
+			<div class="col-sm-12" ng-repeat="userDetails in users" 
+				ng-if="userDetails.id != currentUser.id && show(userDetails.id) == 'cc' ">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				<div class="col-sm-8">
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+
+				</div>
+				<div class="col-sm-2">
+				
+                     <div ng-init="showme=false" ng-show="showme"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+					<a  ng-click="acceptRequest(userDetails.id);showme=true" href="#users">CONFIRM</a> 
+                    <a  ng-click="rejectfriendRequest(userDetails.id)" href="#users"> | REJECCT</a>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+
+
+
+		</div>
+	</div>
+	
+	<h2 class="text-center">People You May Know</h2>
+<p class="show_text">Search users: <input class="user_search" type="text" ng-model="sear_text"></p>
+	<div class="row">
+
+		<div class="shadow">
+			<div class="col-sm-12" ng-repeat="userDetails in users | filter: sear_text"
+				ng-if="userDetails.id != currentUser.id && show(userDetails.id) == 'xx' && showFriends(userDetails.id) == 'bb'">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				<div class="col-sm-8">
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+
+				</div>
+				<div class="col-sm-2">
+
+					<a ng-click="sendRequest(userDetails.id)" href="#users">SEND
+						Request &nbsp;&nbsp;<span class="glyphicon glyphicon-send"></span>
+					</a>
+
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+
+
+
+		</div>
+	</div>
+</div>

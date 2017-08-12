@@ -1,0 +1,55 @@
+<div class="container"
+	ng-init="fetchAllUsers(); showFriend()">
+	
+	<div class="top">
+	
+		
+			<h2 ng-show="myfriends.length != 0" class="text-primary">Your Friends List</h2>
+		
+	</div>
+	<div class="row">
+
+		<div class="shadow">
+			<div class="col-sm-12" ng-repeat="userDetails in users"
+				ng-if="userDetails.id != currentUser.id && showFriends(userDetails.id) == 'aa' ">
+				<div class="col-sm-2">
+					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
+						class="img-circle" width="60px">
+				</div>
+				
+				<div class="col-sm-4">Name
+					<h4>
+						<a>{{userDetails.name}}</a>
+					</h4>
+
+				</div>
+				
+				<div class="col-sm-4">Email
+					<h4>
+						<a>{{userDetails.email}}</a>
+					</h4>
+
+				</div>
+				
+				
+				<div class="col-sm-2">
+
+				<!-- 	<a ng-click="sendRequest(userDetails.id)" href="#users">Friend
+						&nbsp;&nbsp;<span style="color: green"
+						class="glyphicon glyphicon-ok"></span>
+					</a> -->
+<div ng-show="showthis"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+	
+	<a class="btn btn-primary btn-sm" ng-click="unfriend(userDetails.id); showthis=true" href="#users" >Unfriend <span class="glyphicon glyphicon-trash"></span></a>
+	
+	<a class="btn btn-primary btn-sm" href="#chatbox/{{userDetails.id}}">Open ChatBox<i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+				</div>
+				<div class="clearfix"></div>
+				<hr />
+			</div>
+
+
+
+		</div>
+	</div>
+	</div>
