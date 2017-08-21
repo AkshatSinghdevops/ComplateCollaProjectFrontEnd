@@ -1,57 +1,88 @@
-<div class="container-fluid">
+<marquee><div class="container-fluid">
     <div class="navbar-header">
    
-      <a class="navbar-brand" href="#/home">Collaboration !!</a>
-     
-    </div>
+      <a class="navbar-brand" href="#/home">Welcome To Collaboration !!</a>
+    </div></marquee>
     <ul class="nav navbar-nav">
-      <li><a href="#aboutus">AboutUs</a></li>
-       
+      <li ng-hide="currentUser.id"><a href="#aboutus">AboutUs</a></li>
+       <li ng-hide="currentUser.id"><a href="#contact">Contact</a></li>
      
     
-    <li class="dropdown">
+    <li ng-show="currentUser.id" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="">
     Blog<span class="caret">
     </span>
     </a>
       <ul class="dropdown-menu">
-          <li><a href="#Blog">List Blog</a></li>
+          <li ><a href="#Blog">List Blog</a></li>
           <li><a href="#createBlog">Add New Blog</a></li>
-         
+           <li ng-show="currentUser.role =='Admin'"><a href="#list">My Own Blog</a></li>
         </ul>
      </li>
      
-     <li class="dropdown">
+     <li ng-show="currentUser.id" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="">
     Forum<span class="caret">
     </span>
     </a>
       <ul class="dropdown-menu">
+      <li><a href="#Cforum">Create-Forum</a></li>
           <li><a href="#myforum">Forum-List</a></li>
-       
+          
          
         </ul>
      </li>
      
-     <li><a href="#profile">Profile</a></li>
      
-      <!-- <li class="dropdown">
+     
+     
+     
+    <li ng-show="currentUser.id" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+    Job<span class="caret">
+    </span>
+    </a>
+      <ul class="dropdown-menu">
+          <li><a href="#listjob">List Job</a></li>
+          <li ng-show="currentUser.role =='Admin'"><a style="color:black !important" href="#create">create job</a></li>
+         <li ng-show="currentUser.role =='Admin'"><a href="#manage">Manage-Jobs</a></li>
+          <li ng-show="currentUser.role =='Admin'"><a href="#view">view applied</a></li>
+        </ul>
+     </li>
+     
+      <li ng-show="currentUser.id" class="dropdown">
       <a data-toggle="dropdown" href="">
       Friends<span class="caret"></span></a>
        <ul class="dropdown-menu">
       <li><a href="#users">All Users</a></li>
       <li><a href="#viewrequest">View-Request</a></li>
       <li><a  href="#friends">Friends</a></li>
-      </ul> -->
-      
+      </ul>
+      </li>
+     
+     <!-- <li ng-show="currentUser.id"><a href="#profile">Profile</a></li> -->
+     <li ng-show="currentUser.id"><a href="#edit">Profile</a></li>
+     
+      <li ng-show="currentUser.id"><a href="#upload">Upload & Download</a></li>
      
      
      
-     </ul>
      <ul class="nav navbar-nav navbar-right">
-    <li ng-show="currentUser.id"><a href="#profile" class="text-success"><span></span> Welcome {{currentUser.name}} !!!</a></li>
+     <li ng-show="currentUser.id"><a ><img ng-src="http://localhost:8080/RestController/static/images/{{currentUser.id}}.jpeg" style="width:5%" class="profile-image img-circle special-img"/></a></li> 
+     <li ng-show="currentUser.id"><a href="#profile" class="text-success"><span></span> Welcome {{currentUser.name}} !!!</a></li>
       <li ng-hide="currentUser.id"><a href="#register"><span></span> Sign Up</a></li>
       <li ng-hide="currentUser.id"><a href="#login"><span></span> Login</a></li>
       <li ng-show="currentUser.id"><a ng-click="logout()" href="#logout"><span></span> Logout</a></li>
     </ul>
   </div>
+
+  
+  <script>
+  .special-img 
+  {
+      position: relative;
+      top: -5px;
+      float: left;
+      left: -5px;
+
+  </script>

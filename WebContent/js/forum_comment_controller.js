@@ -1,21 +1,25 @@
 'use strict';
  
-angular.module('myApp').controller('MessageForumController', ['$scope', 'MessageForumService', function($scope, MessageForumService) {
+angular.module('myApp').controller('MessageForumController', ['$scope','$routeParams','$rootScope', 'MessageForumService', function($scope,$rootScope, $routeParams,MessageForumService) {
     var self = this;
     self.messageforum={id:null,forum_comment:'',forum_id:'',user_id:''};
     self.messageforums=[];
- 
+    $rootScope.chatforum={id:null,user_id:'',message:'',create_date:''};
+    $scope.chatforum={id:null,user_id:'',message:'',create_date:''};
+    $rootScope.chatforum=[];
+    
     self.submit = submit;
     self.remove = remove;
     self.reset = reset;
  
- 
+     // var id = $routeParams.id;
     fetchAllMessageForums();
+    
  
-    function fetchAllMessageForums(forum_id){
+    function fetchAllMessageForums(id){
     	
-    	console.log("gggggggg",forum_id);
-        MessageForumService.fetchAllMessageForums()
+    	console.log("fetchallMessageForum");
+        MessageForumService.fetchAllMessageForums(id)
             .then(
             function(d) {
                 self.messageforums = d;
@@ -25,6 +29,19 @@ angular.module('myApp').controller('MessageForumController', ['$scope', 'Message
             }
         );
     }
+    
+  
+    
+    function singleForum(id){
+    	console.log("single forum method " + id)
+        MessageForumService.singleForum(id)
+             .then(
+             console.log("success"),
+             function(errResponse){
+                 console.error('Error while updating ChatForum');
+             }
+         );
+     }
  
     function createMessageForum(messageforum){
         MessageForumService.createMessageForum(messageforum)
@@ -48,7 +65,7 @@ angular.module('myApp').controller('MessageForumController', ['$scope', 'Message
         );
     }
  
-    function submit(forum_id) {
+    function submit() {
         if(self.messageforum.id==null){
             console.log('Saving New MessageForum', self.messageforum);
             createMessageForum(self.messageforum);

@@ -11,7 +11,7 @@ myApp
 
 							console.log("FriendService...")
 
-							var BASE_URL = 'http://localhost:8080/BackEndDemo'
+							var BASE_URL = 'http://localhost:8080/RestController'
 							return {
 
 								sendRequest : function(id) {
@@ -124,7 +124,7 @@ myApp
 						    	console.log("Starting sending message services")
 						    	console.log("service friend_id "+chat.friend_id)
 						    	console.log("service message "+chat.message)
-						        return $http.post('http://localhost:8080/BackEndDemo/chating/save',chat)
+						        return $http.post('http://localhost:8080/RestController/chating/save',chat)
 						                .then(
 						                        function(response){
 						                            return response.data;

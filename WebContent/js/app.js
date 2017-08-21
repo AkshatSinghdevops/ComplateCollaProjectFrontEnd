@@ -22,6 +22,10 @@ myApp.config(function($routeProvider){
 		controller:'BlogController',
 		templateUrl:'blog/Blog.html'
 	})
+	.when('/list',{
+		controller:'BlogController',
+		templateUrl:'blog/mylist.html'
+	})
 	.when('/createBlog',{
 		controller:'BlogController',
 		templateUrl:'blog/createBlog.html'
@@ -32,13 +36,19 @@ myApp.config(function($routeProvider){
 	.when('/aboutus',{
 		templateUrl:'view/aboutus.html'
 	})
+	.when('/contact',{
+		templateUrl:'view/contact.html'
+	})
 	.when('/profile',{
 		templateUrl:'view/my_profile.html'
 	})
 	.when('/myforum',{
 		templateUrl:'forum/myforum.html'
 	})
-	.when('/forums/:param1',{
+	.when('/Cforum',{
+		templateUrl:'forum/createForum.html'
+	})
+	.when('/forums/:idid',{
 		controller:'MessageForumController',
 		templateUrl:'forum/singleForum.html'
 	}) 
@@ -63,6 +73,30 @@ myApp.config(function($routeProvider){
 		controller : 'ChatCtrl',
 		
 		templateUrl : 'chat/chat.html'
+	})
+	.when('/listjob', {
+		
+		templateUrl : 'job/joblist.html'
+	})
+	.when('/create', {
+		controller:'JobController',
+		templateUrl : 'job/createjob.html'
+	})
+	.when('/manage', {
+		controller:'JobController',
+		templateUrl : 'job/managejob.html'
+	})
+	.when('/view/:param2', {
+		
+		templateUrl : 'job/viewappliedpeople.html'
+	})
+	.when('/edit', {
+		
+		templateUrl : 'view/EditProfile.html'
+	})
+	.when('/upload', {
+		controller:'BlogController',
+		templateUrl : 'view/upload.html'
 	})
 	.otherwise('/home',{
 		templateUrl:'view/home.html'
@@ -93,7 +127,7 @@ myApp.run(function($cookieStore, $rootScope, $location, UserService, $http) {
 
 		var userPages = [ '/users', '/createBlog', '/job', '/profile',
 				'/Blog', '/viewFriendRequest', '/chat' ,'/myforum']
-		var adminPages = [ "/blog-manage", "/job-manage", "/create_job" ]
+		var adminPages = [ "/blog-manage", "/job-manage", "/createjob" ]
 
 		var currentPage = $location.path()
 
@@ -144,4 +178,23 @@ myApp.run(function($cookieStore, $rootScope, $location, UserService, $http) {
 	}
 })
 
+
+angular.module('myApp').directive('fileModel','directives',function($parse){
+	
+	return {
+		restrict:'A',
+		link: function(scope,element,attrs){
+			
+			var model=$parse(attrs,fileModel);
+			var modelSetter = model.assign;
+			
+			element.bind('change',function(){
+				scope.$apply(function(){
+					modelSetter(scope,element[0].files[0]);
+				});
+			});
+			
+		}
+	};
+});
 

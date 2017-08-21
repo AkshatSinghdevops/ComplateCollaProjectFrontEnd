@@ -12,7 +12,7 @@ myApp.service("ChatService", function($q, $timeout)
     var messageIds = [];
     
     service.RECONNECT_TIMEOUT = 30000;
-    service.SOCKET_URL = "http://localhost:8080/BackEndDemo/chat";
+    service.SOCKET_URL = "http://localhost:8080/RestController/chat";
     service.CHAT_TOPIC = "/topic/message";
     service.CHAT_BROKER = "/myApp/chat";
     

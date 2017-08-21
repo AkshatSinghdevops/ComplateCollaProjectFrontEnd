@@ -36,8 +36,9 @@ angular.module('myApp').controller('ForumController', ['$scope', 'ForumService',
     }
    
     
-    function singleForum(chatforum, id){
-        ForumService.singleForum(chatforum, id)
+    function singleForum(id){
+    	cansole.log(id)
+        ForumService.singleForum(id)
              .then(
              fetchAllChatForums,
              function(errResponse){

@@ -1,9 +1,11 @@
 'use strict'
-angular.module('myApp').controller('BlogController', ['$scope', 'BlogService', function($scope, BlogService) {
+angular.module('myApp').controller('BlogController', ['$scope','BlogService','$http', function($scope, BlogService,$http) {
     var self = this;
     self.blog={id:null,user_id:'',blog_name:'',description:''};
     self.blogs=[];
- 
+    $scope.userblog=[];
+    
+    
     self.submit = submit;
     self.edit = edit;
     self.remove = remove;
@@ -11,12 +13,58 @@ angular.module('myApp').controller('BlogController', ['$scope', 'BlogService', f
  
  
     fetchAllBlogs();
+    getUserBlog();
+    
+ /* =========================================================================================================== */  
+    
+    	
+    	/*$scope.selectUploadFile;
+    	
+    	$scope.uploadFile=function(){
+    		
+    		var formData = new FromData();
+    		for(e in $scope.selectUploadFile){
+    			fromData.append(e,$scope.selectUploadFile[e])
+    		}
+    		
+    		var file = $('#file')[0].files[0];
+    		console.log(file)
+    		formData.append('file',$scope.selectUploadFile);
+    		$http.post('api/uploa',formData,{
+    			transformRequest:angular.indentity,
+    			headers:{'Content-Type':multipart/from-data}
+    		}).success(function(){
+    			console.log('success upload file',file);
+    		});
+    		
+    	};*/
+    	
+    	
+    
+    	
+    	
+    	
+	
+	 /* ================================================================================================================== */  	
  
     function fetchAllBlogs(){
         BlogService.fetchAllBlogs()
             .then(
             function(d) {
                 self.blogs = d;
+            },
+            function(errResponse){
+                console.error('Error while fetching Blogs');
+            }
+        );
+    }
+    
+    function getUserBlog(){
+    	console.log("enter getUserBlog in controller")
+        BlogService.getUserBlog()
+            .then(fetchAllBlogs(),
+            function(d) {
+                $scope.userblog = d;
             },
             function(errResponse){
                 console.error('Error while fetching Blogs');

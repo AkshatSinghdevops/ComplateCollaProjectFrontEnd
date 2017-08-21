@@ -1,0 +1,78 @@
+
+<div ng-controller="JobController as ctrl">
+<div ng-init=" getAllJob() ">
+
+<form class="form-wrapper cf text-center">
+  	<input ng-model="query" placeholder="search job">
+	  
+</form><br>
+<table class="table">
+
+
+<tr>
+<th class="text-danger">Job Title</th>
+<th class="text-warning">Job Qualififcation</th>
+<th class="text-primary">Job Description</th>
+<th class="text-info">Date Time</th>
+<th class="text-success">Apply For Job</th>
+</tr>
+
+<tr ng-repeat="u in jobs | filter:query">
+<td >{{ u.title }}</td>
+<td> {{ u.qualification }}</td>
+<td>{{ u.description }}</td>
+<td>{{ u.dateTime }}</td>
+
+<td>
+
+<button>
+<a href="#listjob" ng-click="jobApply(u.id)" class="text-danger">Clicked-Here-Apply</a>
+</button>
+
+</td>
+
+
+
+</tr>
+
+
+
+
+
+</table>
+</div>
+</div>
+</div>
+
+<!-- ---------------------- -->
+<!-- <div ng-controller="JobController as ctrl">
+<div ng-init=" getAllJob() ">
+
+<div class="search">
+<h1>list </h1>
+<label>Search:</label>
+<input ng-model="query" placeholder="search job">
+<label class="fromgroup">by:
+<select></select>
+</label>
+</div>
+<ul class="artistlist">
+<li class="jobs cf" ng-repeat="u in jobs | filter:query">
+<div class="info">
+<h2>{{ u.title }}</h2>
+<h2>{{ u.qualification }}</h2>
+<h2>{{ u.description }}</h2>
+<h2>{{ u.dateTime }}</h2>
+</div>
+
+</ul>
+
+</div></div> -->
+
+
+
+
+ 
+ 
+ 
+ 

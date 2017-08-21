@@ -21,7 +21,7 @@ body {
         <div class="row">
           <div class="col-md-12">
 
-            <div class="panel panel-default" >
+            <div class="panel panel-primary" >
               <div class="panel-heading" style="padding:0 0 0 8px;">
                 <!-- <span class="glyphicon glyphicon-user"></span> -->
                 <h6 class="panel-title" style="display:inline;">Chatting with Friends</h6>
@@ -40,11 +40,11 @@ body {
                         <td><img src="{{chat.icon}}" alt="" style="margin-top:8px;"/></td>
                         <td>
                           <h6 ng-if="currentUser.id != message[$index][0]">{{message[$index][0]}}</h6>
-                          <h6 ng-if="currentUser.id == message[$index][0]">Me</h6>
+                          <h6 class="text-danger" ng-if="currentUser.id == message[$index][0]"><!-- Me -->{{currentUser.name}}</h6>
                         </td>
                         <td>
                         <p class="word-wrap:break-word"><small>{{message[$index][3]}}</small></p>
-                        <p>Time: {{message[$index][2]| date:'HH:mm'}}</p>
+                        <!-- <p>Time: {{message[$index][2]| date:'HH:mm'}}</p> -->
                         </td>
                       </tr>
                       <tr ng-show="message.length === 0">
@@ -60,9 +60,9 @@ body {
                 <form>
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon">
-                      <img src="http://placehold.it/16x16" alt="" />
+                     <!--  <img src="http://placehold.it/16x16" alt="" /> -->
                     </span>
-                    <input type="text" class="form-control" ng-model="newChatMsg" placeholder="..."/>
+                    <input type="text" class="form-control" ng-model="newChatMsg" placeholder="Enter message......" autofocus/>
                     <span class="input-group-btn">
                       <button class="btn btn-success" type="submit" ng-click="addChat()">Send-Message</button>
                     </span>

@@ -1,19 +1,19 @@
 
  <div class="generic-container text-center" ng-controller="BlogController as ctrl">
-  <div class="panel panel-default">
+  <div class="panel panel-success">
    <div class="panel-heading"><span class="lead">Create New Blogs</span></div><br>
    <div class="formcontainer">
     <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
      <input type="hidden" ng-model="ctrl.blog.id" />
            <div class="row">
             <div class="form-group col-md-12">
-            <label class="col-md-2 control-lable btn btn-primary btn-sm" for="blog_name">Blog Title:</label>
+            <label class="col-md-2 control-lable text-primary" for="blog_name">Blog Title :</label>
                <div class="col-md-7">
                <input type="text" ng-model="ctrl.blog.blog_name" id="blog_name" class="title form-control input-sm" placeholder="Enter your blog title" required/>
                </div> </div></div>
            <div class="row">
             <div class="form-group col-md-12">
-             <label class="col-md-2 control-lable btn btn-primary btn-sm" for="description">Description:</label>
+             <label class="col-md-2 control-lable text-primary" for="description">Description :</label>
                <div class="col-md-7">
                <textarea rows="8" cols="80" ng-model="ctrl.blog.description" id="description" class="form-control input-sm" placeholder="Enter your blog description." required>
                 </textarea> </div></div> </div> 
@@ -26,7 +26,7 @@
                        
                        <br><br>
                        <!-- <h3  >Created By <h2 ng-repeat="u in ctrl.blogs" class="text-warning">{{u.user_id}}</h2></h3> -->
-                       <div class="container">
+                       <!-- <div class="container">
                   <table class="table">
 
 <tr ng-repeat="u in ctrl.blogs"><td><table><tr>
@@ -41,4 +41,45 @@
  </table></td> </tr>
 </table></td><tr></table></td>
 </tr></table>
-               </div>  </div> </div></div>
+               </div>   -->
+               
+<!--==============###############@@@@@@@@@@@@@@@@####################@@@@@@@@@@@@@@@@@@@@@@@######################@@@@@@@@@@@@@@@@@@======================-->               
+
+<div class="container">
+<div ng-init="getUserBlog()" ng-controller="BlogController as c">
+<table class="table table-hover table-condensed table-bordered" border="1">
+<thead>
+<tr>
+<th>ID</th>
+<th>TITLE</th>
+<th>USER ID</th>
+<th class="col-lg-1">DATE TIME</th>
+
+
+<th>DESCRIPTION</th>
+<th class="col-lg-2">OPERATIONS</th>
+</tr>
+</thead>
+	
+   <tr ng-repeat="blogDetails in ctrl.blogs" ng-if="blogDetails.user_id == currentUser.id ">
+   
+   <td>{{blogDetails.id}}</td>
+   <td ng-bind="blogDetails.blog_name">{{blogDetails.blog_name}}</td>
+   <td>{{blogDetails.user_id}}</td>
+   <td>{{blogDetails.create_date| date:'longDate'}}</td>
+   
+   
+   
+   
+   <td ng-bind="blogDetails.description">{{blogDetails.description}}</td>
+   <td ><a href="#list" ng-click="remove(blogDetails.id)">DELETE</a>
+ <td><button type="button" ng-click="ctrl.edit(blogDetails.id)" class="btn btn-primary custom-width">Edit</button></td> 
+   	
+   </tr>
+	
+
+</table>
+</div>
+</div></div> </div></div>
+
+

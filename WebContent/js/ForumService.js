@@ -2,9 +2,9 @@
  
 angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, $q){
  
-    var REST_SERVICE_URI = 'http://localhost:8080/BackEndDemo/addforum/';
-    var REST_SERVICE_update_URI = 'http://localhost:8080/BackEndDemo/manage_chat_forum/';
-    var REST_SERVICE_fetch_URI = 'http://localhost:8080/BackEndDemo/list_chat_forum/';
+    var REST_SERVICE_URI = 'http://localhost:8080/RestController/addforum/';
+    var REST_SERVICE_update_URI = 'http://localhost:8080/RestController/manage_chat_forum/';
+    var REST_SERVICE_fetch_URI = 'http://localhost:8080/RestController/list_chat_forum/';
     var factory = {
         fetchAllChatForums: fetchAllChatForums,
         createChatForum: createChatForum,
@@ -16,7 +16,7 @@ angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, 
  
     function fetchAllChatForums() {
         var deferred = $q.defer();
-        $http.get('http://localhost:8080/BackEndDemo/forums')
+        $http.get('http://localhost:8080/RestController/forums')
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -60,10 +60,10 @@ angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, 
         return deferred.promise;
     }
    
-    function singleForum(chatforum, id) {
+    function singleForum(id) {
         var deferred = $q.defer();
-        $http.get(REST_SERVICE_update_URI+id, chatforum)
-            .then(
+        $http.get('http://localhost:8080/RestController/list_message_forum/',id)
+            .then(+
             function (response) {
                 deferred.resolve(response.data);
             },

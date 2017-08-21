@@ -1,9 +1,33 @@
 
 
 
+<!-- <h3> Forum List</h3>
+ <div ng-controller="ForumController as ctrl"> 
+<table class="table"border="2">
+		<tr>
+			<th width="80" class="text-danger">Forum ID</th>
+			<th width="80" class="text-danger">Created by</th>
+			<th width="120" class="text-danger"> Title</th>
+		     <th width="80" class="text-danger">Date</th> 
+		    <th width="80" class="text-danger">Chatting</th>
+			</tr>
+			
+ <tr ng-repeat="c in ctrl.chatforums">
+ 
+ 
+ <td class="text-success">{{c.user_id}} </td>
+ <td class="text-warning">{{c.forum_name}}</td>
+  <td class="text-danger">{{c.create_date |  date:'MM/dd/yyyy'}}</td> 
+ <td><a href="#forums/{{ c.id }}" ng-click="singleForum(c.id)" class="btn btn-default">Message</a></td>
+ </tr>
+ </table>
+</div> -->
+<!-- #forums/{{ c.id }} -->
+
+
 <h3> Forum List</h3>
  <div ng-controller="ForumController as ctrl"> 
-<table class="table">
+<table class="table"border="2">
 		<tr>
 			<!-- <th width="80" class="text-danger">Forum ID</th> -->
 			<th width="80" class="text-danger">Created by</th>

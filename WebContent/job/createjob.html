@@ -1,0 +1,152 @@
+<p> create job </p>
+<div ng-controller="JobController as ctrl">
+<div class="container">
+
+<div ng-if="suMessage" class="alert alert-success" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong> Job Created successfully!
+</div>
+</div>
+<h2 class="text-center">Create Job</h2>
+<form class="form-horizontal" name="create_job" ng-submit="job_create()">
+ 
+ <div class="form-group">
+<label class="control-label col-sm-2 text-danger">Title</label><div class="col-sm-10"><input required="true" type="text" id="user_id" ng-model="job.title" placeholder="Enter Your Job Name "/>
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2 text-danger">Qualification:</label><div class="col-sm-10"><input required="true" type="text" id="title" ng-model="job.qualification">
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2 text-danger">Date:</label><div class="col-sm-10"><input type="date" id="date" ng-model="job.dateTime">
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2 text-danger">Status:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option value="C">V</option>
+<option value="C">C</option>
+</select>
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2 text-danger">Description:</label><div class="col-sm-10"><textarea cols="60" rows="10" id="description" ng-model="job.description" placeholder="Enter Some Description about your job."></textarea>
+</div></div>
+ <div class="form-group">
+ <div class="col-sm-offset-2 col-sm-10">
+<input type="submit" value="Create">
+</div>
+</div>
+</form>
+</div>
+</div>
+                          
+ 
+ 
+<!--  <div class="generic-container" ng-controller="JobController as ctrl">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+              
+    
+	 
+	<h1 class="text-success">Welecome To Admin Page </h1>
+	<p2 class="text-info"> Now, Create A Job Vacancy </p2> 
+	 
+	 </div>
+              <div class="formcontainer">
+                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+     
+                    
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-danger" for="title">Job Title:</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.job.title" id="title" class="title form-control input-sm" placeholder="Enter Your Job Name (like engineers,developers ect.,..)" required />
+                              </div>
+                          </div>
+                    
+                     
+                      
+                     
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-warning" for="qualification">Required Qualification:</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.job.qualification" id="qualification" class="qualification form-control input-sm" placeholder="Enter Qualification " required />
+                              </div>
+                          </div>
+                     
+                   
+                     
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-success" for="description">Description</label>
+                              <div class="col-md-7">
+                                   <textarea rows="8" cols="80" ng-model="ctrl.job.description" id="description" class="form-control input-sm" placeholder="Enter Some Description about your job." required>
+                              </textarea>
+                              </div>
+                          </div>
+                     
+                  
+                      
+                          <div class="form-group col-md-12">
+                          <script>
+                                $(document).ready(function() {
+                             $("#datepicker").datepicker({dateFormat: "dd-mm-yy"});
+                                });
+                                </script>
+                              <label class="col-md-2 control-lable text-info" for="datepicker">Date</label>
+                              <div class="col-md-7">
+                              
+                                  <input type="date" ng-model="ctrl.job.dateTime" id="datepicker" class="form-control input-sm" placeholder="select date." required/>
+                             
+                          </div>
+                      </div></div>
+                      <br>
+                     
+                          <div class="form-actions floatRight text-center">
+                              <input type="submit"  value="Create" class="btn btn-outline-danger" ng-disabled="myForm.$invalid">
+                              
+                          </div>
+                     
+                  </form>  </div>
+          </div></div> -->
+                  
+                
+            
+ <div ng-controller="JobController as ctrl">
+<div ng-init=" getAllJob() ">
+
+
+<table class="table">
+
+
+<tr>
+<th class="text-danger">Jod ID</th>
+<th class="text-success">Job Title</th>
+<th class="text-info">Job Qualififcation</th>
+<th class="text-primary">Job Description</th>
+<th class="text-warning">Date Time</th>
+<th class="text-default">Editing</th>
+<th class="text-danger">Details</th>
+</tr>
+
+<tr ng-repeat="u in jobs | filter:searchtext">
+<td ng-bind="u.id">{{ u.id }}</td>
+<td ng-bind="u.title">{{ u.title }}</td>
+<td ng-bind="u.qualification" > {{ u.qualification }}</td>
+<td ng-bind="u.description">{{ u.description }}</td>
+<td ng-bind="u.dateTime">{{ u.dateTime }}</td>
+
+<td>
+
+<button type="button" ng-click="jobEdit(u.id)"><a href="#create"></a><span class="glyphicon glyphicon-pencil"></span></button>
+  <a href="postAJob/delete?id={{ u.id }}" onclick="return confirm('Are you sure to remove it?')"><span class="glyphicon glyphicon-trash"></span></a>
+  </td>
+   <td><a href="#view/{{u.id}}" ng-click="getUserAppJob(u.id)">Details</a> </td>    
+
+
+
+</tr>
+
+
+
+
+
+</table>
+</div>
+</div>
+</div>
+ 

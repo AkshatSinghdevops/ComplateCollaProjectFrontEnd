@@ -9,47 +9,15 @@
   <h2 class="text-center">All Blogs List</h2>
   <div ng-repeat="blogDetails in ctrl.blogs">
  <!--  <div ng-hide="blogDetails.status =='N'"> -->
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <div class="panel-heading text-center"><h3>{{blogDetails.blog_name}}</h3></div>
     
     <div ng-maxlength="5" class="panel-body">{{blogDetails.description}}<!-- | limitTo: 400 -->
 <!--     <div style="float:right;"><a href="#blog/{{blogDetails.id}}" ng-click="single_blog(blogDetails.id)">Read More</a></div></div>
  -->    <br>
  
- <!-- ================================================================================== -->
-   
-  <!--  <div ng-controller="CommentBlog as cblog">
-   <div class="text-danger">Add Comment</div>
-   <form ng-submit="cblog.create()" name="from" class="form-horizontal">
-   <div class="row">
-							<div class="form-group col-md-12">
-								<label class="col-md-2 control-lable" for="id">ID</label>
-								<div class="col-md-7">
-									<input type="text" ng-model="ctrl.blogcomment.blog_comment" id="blog_comment"
-										class="userid form-control input-sm" />
-								</div>
-							</div>
-						</div>
-   
-   
-   <div class"row">
-			<div class="col-md-4 col-md-offset-4">
-			<div class="form-actions">
-				<button type="submit"
-					ng-disabled="form.$invalid"
-					class="btn btn-primary">Add</button>
-				
-				</div>
-			</div>
-			</div>
-			</div>
-		</form>
-   
-   </div> -->
-  
- <!-- ================================================================================== -->
-    
-    <div class="panel-footer"><h3>Created By: {{blogDetails.user_id}} </h3>  Published On: {{blogDetails.create_date| date:'longDate'}}</div>
+
+    <div class="panel-footer"><h3 class="text-success">Created By: {{blogDetails.user_id}} </h3>  Published On: {{blogDetails.create_date| date:'longDate'}}</div>
   </div>
   </div>
   </div>

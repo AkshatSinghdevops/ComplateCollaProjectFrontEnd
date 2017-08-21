@@ -40,13 +40,13 @@ myApp.service('UserService', ['$http', '$q','$rootScope', function($http, $q,$ro
 	
 	console.log("UserService...")
 	
-	var BASE_URL='http://localhost:8080/BackEndDemo'
+	var BASE_URL='http://localhost:8080/RestController'
 		
     return {
          
             fetchAllUsers: function() {
             	console.log("calling fetchAllUsers ")
-                    return $http.get('http://localhost:8080/BackEndDemo'+'/users')
+                    return $http.get('http://localhost:8080/RestController'+'/users')
                             .then(
                                     function(response){
                                         return response.data;
@@ -136,7 +136,7 @@ myApp.service('UserService', ['$http', '$q','$rootScope', function($http, $q,$ro
         validateUser: function(user){
             	   console.log("Calling the method authenticate with the user :"+user.id+","+user.password)
           		 
-                return $http.post('http://localhost:8080/BackEndDemo/user/validate/',user)
+                return $http.post('http://localhost:8080/RestController/user/validate/',user)
                         .then(
                                 function(response){
                                     return response.data;   //user json object

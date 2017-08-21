@@ -1,0 +1,48 @@
+<p> List of job applied people</p>
+
+
+<div ng-controller="JobController as ctrl">
+<div ng-init="AdminS(); ">
+
+
+<table class="table">
+
+
+<tr>
+<th class="text-danger"> ID</th>
+<th class="text-success">User-ID</th>
+<th class="text-info">Job-ID</th>
+<th class="text-primary">Date</th>
+<th class="text-warning">Status</th>
+
+<th class="text-danger"></th>
+</tr>
+
+<tr ng-repeat="u in jobs | filter:searchtext">
+<td >{{ u.id }}</td>
+
+<td >{{ u.userID }}</td>
+
+<td >{{ u.jobID }}</td>
+
+<td>{{u.date_applied | date:'MM/dd/yyyy @ h:mma'}}</td>
+<td>{{u.status}}</td>
+
+
+</tr>
+
+
+
+
+
+</table>
+</div>
+</div>
+</div>
+ 
+
+
+
+
+
+

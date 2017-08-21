@@ -1,0 +1,78 @@
+<p> welcome to manage job</p>
+
+<div ng-controller="JobController as ctrl">
+
+
+<div  class="container">
+<h2 class="text-center">Edit Job Here</h2>
+<form class="form-horizontal" name="update_job" ng-submit="job_update()" >
+ <div class="form-group">
+<label class="control-label col-sm-2">TITLE:</label><div class="col-sm-10"><input required="true" type="text"  id="title"  ng-model="job.title">
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2">QUALIFICATION</label><div class="col-sm-10"><input required="true" type="text" id="qualification" ng-model="job.qualification">
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2">DATE:</label><div class="col-sm-10"><input type="date" format="yyyy/MM/dd" id="date_time" ng-model="job.dateTime">
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2">STATUS:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option value="C">Closed</option>
+<option value="V">Vacant</option>
+</select>
+</div></div>
+ <div class="form-group">
+<label class="control-label col-sm-2">Description:</label><div class="col-sm-10"><textarea cols="60" rows="10" id="description" ng-model="job.description"></textarea>
+</div></div>
+ <div class="form-group">
+ <div class="col-sm-offset-2 col-sm-10">
+<input type="submit" value="Update">
+<!-- <button ng-click="getAllJob(); job.id=''">Back to Manage Job</button>
+ --></div>
+</div>
+</form>
+</div>
+
+<div ng-init=" getAllJob() ">
+
+
+<table class="table">
+
+
+<tr>
+<th class="text-danger">Jod ID</th>
+<th class="text-success">Job Title</th>
+<th class="text-success">Job Status</th>
+<th class="text-info">Job Qualififcation</th>
+<th class="text-primary">Job Description</th>
+<th class="text-warning">Date Time</th>
+<th class="text-default">Editing</th>
+
+</tr>
+
+<tr ng-repeat="u in jobs | filter:searchtext">
+<td ng-bind="u.id">{{ u.id }}</td>
+<td ng-bind="u.title">{{ u.title }}</td>
+<td ng-bind="u.title">{{ u.status}}</td>
+<td ng-bind="u.qualification" > {{ u.qualification }}</td>
+<td ng-bind="u.description">{{ u.description }}</td>
+<td ng-bind="u.dateTime">{{ u.dateTime }}</td>
+
+<td>
+
+<button type="button" ng-click="jobEdit(u.id)"><a href="#create"></a><span class="glyphicon glyphicon-pencil"></span></button>
+  <a href="postAJob/delete?id={{ u.id }}" onclick="return confirm('Are you sure to remove it?')"><span class="glyphicon glyphicon-trash"></span></a>
+  </td>
+      
+
+
+
+</tr>
+
+
+
+
+
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<h2> Create New Forum </h2>
+
+
+<div class="generic-container" ng-controller="ForumController as ctrl">
+          <div class="panel panel-default">
+              <div class="panel-heading"><span class="lead">Forum</span></div>
+            <br>  <div class="formcontainer">
+                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                     <input type="hidden" ng-model="ctrl.chatforum.id" />
+     
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="forumName">Forum Title:</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.chatforum.forum_name" id="forumName" class="forumName form-control input-sm" placeholder="Enter forumName" required />
+                              </div>
+                          </div>
+                      </div>
+                   
+                       <div class="row">
+                          <div class="form-actions floatRight text-center">
+                              <input type="submit"  value="{{!ctrl.chatforum.id ? 'Add' : 'Update'}}" class="btn btn-default btn-sm" ng-disabled="myForm.$invalid">
+                              <button type="button" ng-click="ctrl.reset()" class="btn btn-default btn-sm" ng-disabled="myForm.$pristine">Reset</button>
+                          </div>
+                      </div>
+                  </form>
+                  
+                 </div></div></div>
+
