@@ -4,12 +4,12 @@
 <title>Welcome To Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
+</style> 
 
 
 
@@ -104,10 +104,28 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         
         <a href="#viewrequest" class="btn btn-primary btn-sm">view-Request</a>
         
-        <br> 
+        <br> <br>
         
 <!-- ================================================================================================================================================== -->
-      
+<div ng-controller="JobController as ctrl">
+<div ng-init="AdminS(); ">
+<table class="table">
+<tr>
+
+</tr>
+
+<tr ng-repeat="u in jobs" ng-if="u.userID==currentUser.id">
+
+
+ <td ng-if="u.status == 'Y'"> Your job applied is success Now you send RESUME in  E-Mail (Niit123@gmail.com) <br> For Ant other information please CONTACT-US : 9993999399</td>
+   <td ng-if="u.status == 'N'"></td>
+   <td ng-if="u.status == 'A'">Your job applied Pending</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+ 
         
 <!-- ===================================================================================================================================================== -->
         
@@ -122,7 +140,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   
   <!-- End Page Container -->
 </div>
-<div ng-include=" 'blog/Blog.html' "></div>
+<!-- <div ng-include=" 'blog/Blog.html' "></div> -->
 <footer class="w3-container w3-teal w3-center w3-margin-top">
   <p>Find me on social media.</p>
   <i class="fa fa-facebook-official w3-hover-opacity"></i>

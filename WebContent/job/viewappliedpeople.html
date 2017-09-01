@@ -1,3 +1,4 @@
+
 <p> List of job applied people</p>
 
 
@@ -28,6 +29,10 @@
 <td>{{u.date_applied | date:'MM/dd/yyyy @ h:mma'}}</td>
 <td>{{u.status}}</td>
 
+<td>
+<a ng-if="u.status == 'N' || u.status =='A'" href="" ng-click="jobAccept(u)">| Accept</a>
+<a ng-if="u.status== 'Y'" href="" ng-click="jobReject(u)">| Reject</a>
+</td>
 
 </tr>
 

@@ -57,6 +57,21 @@ myApp.service('JobService', [
 						return $q.reject(errResponse);
 					});
 				},
+				
+				
+				updateAppliedJob : function(appliedJob) {
+					console.log('Calling Update appliedJob services')
+					return $http.put(BASE_URL + '/appliedJob/update',appliedJob)
+					.then(function(response) {
+						return response.data;
+					}, function(errResponse) {
+						console.error('Error while update Job');
+						return $q.reject(errResponse);
+					});
+				},
+				
+				
+				
 				fetchAlljob : function() {
 					console.log("calling fetchAllJobs ")
 					return $http.get(BASE_URL + '/list').then(
@@ -68,6 +83,13 @@ myApp.service('JobService', [
 				fetchuserAppliedJobs : function(id) {
 					console.log("calling fetch Appled AllJobs service "+id)
 					return $http.get(BASE_URL +  '/job-applied/'+id).then(
+							function(response) {
+								return response.data;
+							}, null);
+				},
+				removeService : function(id) {
+					console.log("calling removeService  " + id )
+					return $http.get(BASE_URL +  '/Delete/' +id).then(          //Amin Method
 							function(response) {
 								return response.data;
 							}, null);

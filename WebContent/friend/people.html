@@ -1,5 +1,4 @@
 
-
 <!-- <div class="container"
 	ng-init="fetchAllUsers();">
 	
@@ -101,9 +100,24 @@ document.onreadystatechange = function () {
 	  }
 	}
 </script>
-
+<style> 
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color:red;
+    background-color: #3CBC8D;
+    background-image: url('image/icon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+</style>
 </head>
-<div class="container"
+</head>
+<!-- <div class="container"
 	ng-init="fetchAllUsers(); getMyfriendsreq();showFriend()">
 
 	
@@ -114,8 +128,8 @@ document.onreadystatechange = function () {
 			<div class="col-sm-12" ng-repeat="userDetails in users" 
 				ng-if="userDetails.id != currentUser.id && show(userDetails.id) == 'cc' ">
 				<div class="col-sm-2">
-					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
-						class="img-circle" width="60px">
+					<img ng-src="http://localhost:8080/RestController/static/images/{{userDetails.name}}.jpeg"class="img-circle" width="80px">
+						
 				</div>
 				<div class="col-sm-8">
 					<h4>
@@ -137,18 +151,26 @@ document.onreadystatechange = function () {
 
 		</div>
 	</div>
-	
+	 -->
 	<h2 class="text-center">People You May Know</h2>
-<p class="show_text">Search users: <input class="user_search" type="text" ng-model="sear_text"></p>
+<p class="show_text">Search users: <input class="user_search" type="text" ng-model="sear_text" placeholder="search friends....."></p>
 	<div class="row">
 
 		<div class="shadow">
 			<div class="col-sm-12" ng-repeat="userDetails in users | filter: sear_text"
 				ng-if="userDetails.id != currentUser.id && show(userDetails.id) == 'xx' && showFriends(userDetails.id) == 'bb'">
+				
+				
 				<div class="col-sm-2">
-					<img src="https://www.infrascan.net/demo/assets/img/avatar5.png"
-						class="img-circle" width="60px">
+<!-- <img src="https://www.infrascan.net/demo/assets/img/avatar5.png" class="img-circle" width="60px"> -->
+
+<img ng-src="http://localhost:8080/RestController/static/images/{{userDetails.name}}.jpeg"class="img-circle" width="80px">
+				
 				</div>
+				
+				
+				
+				
 				<div class="col-sm-8">
 					<h4>
 						<a>{{userDetails.name}}</a>

@@ -1,4 +1,10 @@
-
+<!-- <head>
+ <style>
+body {
+  background-color:#ccc;
+}
+</style> 
+</head> -->
  <div class="generic-container text-center" ng-controller="BlogController as ctrl">
   <div class="panel panel-success">
    <div class="panel-heading"><span class="lead">Create New Blogs</span></div><br>
@@ -46,8 +52,9 @@
 <!--==============###############@@@@@@@@@@@@@@@@####################@@@@@@@@@@@@@@@@@@@@@@@######################@@@@@@@@@@@@@@@@@@======================-->               
 
 <div class="container">
+
 <div ng-init="getUserBlog()" ng-controller="BlogController as c">
-<table class="table table-hover table-condensed table-bordered" border="1">
+<table class="table table-hover table-condensed table-bordered" border="1"  style="width:1000px; height:200px;  margin:8px;">
 <thead>
 <tr>
 <th>ID</th>
@@ -72,8 +79,8 @@
    
    
    <td ng-bind="blogDetails.description">{{blogDetails.description}}</td>
-   <td ><a href="#list" ng-click="remove(blogDetails.id)">DELETE</a>
- <td><button type="button" ng-click="ctrl.edit(blogDetails.id)" class="btn btn-primary custom-width">Edit</button></td> 
+   <td ><a href="" ng-click="ctrl.remove(blogDetails.id)">DELETE</a>
+ <button type="button" ng-click="ctrl.edit(blogDetails.id)" class="btn btn-primary custom-width">Edit</button></td> 
    	
    </tr>
 	

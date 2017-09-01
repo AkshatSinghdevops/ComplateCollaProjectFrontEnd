@@ -1,17 +1,18 @@
 
 
-<div class="row" >
+<!-- <div class="row" >
 <from action="http://localhost:8080/RestController/upload" method="post" enctype="multipart/form-data" >
 <input  type="file" name="file" id="file">
 <input type="submit"
             value="Upload"> Press here to upload the file!
-</from>
+</from> -->
 
 <form method="POST" enctype="multipart/form-data"
         action="http://localhost:8080/RestController/Upload/upload">
-        File to upload: <input type="file" name="file"><br /> Name: <input
-            type="text" name="name"><br /> <br /> <input type="submit"
-            value="Upload"> Press here to upload the file!
+        File to upload: <input type="file" name="file"><br />
+         <!-- Name: <input type="text" name="name"> --><br /> <br /> <input type="submit"
+            value="Upload "> Press here to upload the file!
+            
     </form>
 
 <!-- onchange="angular.element(this).scope().setTitle(this)"  -->

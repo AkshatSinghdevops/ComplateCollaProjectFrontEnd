@@ -1,4 +1,6 @@
-<p> create job </p>
+
+
+
 <div ng-controller="JobController as ctrl">
 <div class="container">
 
@@ -20,8 +22,8 @@
 <label class="control-label col-sm-2 text-danger">Date:</label><div class="col-sm-10"><input type="date" id="date" ng-model="job.dateTime">
 </div></div>
  <div class="form-group">
-<label class="control-label col-sm-2 text-danger">Status:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option value="C">V</option>
-<option value="C">C</option>
+<label class="control-label col-sm-2 text-danger">Status:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option >V</option>
+<option >C</option>
 </select>
 </div></div>
  <div class="form-group">
@@ -33,12 +35,11 @@
 </div>
 </div>
 </form>
-</div>
-</div>
+
                           
  
- 
-<!--  <div class="generic-container" ng-controller="JobController as ctrl">
+ <!-- 
+  <div class="generic-container" ng-controller="JobController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading">
               
@@ -49,7 +50,7 @@
 	 
 	 </div>
               <div class="formcontainer">
-                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                  <form ng-submit="ctrl.job_create()" name="myForm" class="form-horizontal">
      
                     
                           <div class="form-group col-md-12">
@@ -66,6 +67,13 @@
                               <label class="col-md-2 control-lable text-warning" for="qualification">Required Qualification:</label>
                               <div class="col-md-7">
                                   <input type="text" ng-model="ctrl.job.qualification" id="qualification" class="qualification form-control input-sm" placeholder="Enter Qualification " required />
+                              </div>
+                          </div>
+                          
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable text-warning" for="status">Status :</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.job.status" id="status" class="qualification form-control input-sm" placeholder="Enter status v-vacancy c-close " required />
                               </div>
                           </div>
                      
@@ -101,8 +109,8 @@
                               
                           </div>
                      
-                  </form>  </div>
-          </div></div> -->
+                  </form>  --> 
+         
                   
                 
             
@@ -119,7 +127,7 @@
 <th class="text-info">Job Qualififcation</th>
 <th class="text-primary">Job Description</th>
 <th class="text-warning">Date Time</th>
-<th class="text-default">Editing</th>
+<!-- <th class="text-default">Editing</th> -->
 <th class="text-danger">Details</th>
 </tr>
 
@@ -130,15 +138,15 @@
 <td ng-bind="u.description">{{ u.description }}</td>
 <td ng-bind="u.dateTime">{{ u.dateTime }}</td>
 
-<td>
+<!--  <td>
 
-<button type="button" ng-click="jobEdit(u.id)"><a href="#create"></a><span class="glyphicon glyphicon-pencil"></span></button>
+<button type="button" ng-click="jobEdit(u.id)"><a href=""></a><span class="glyphicon glyphicon-pencil"></span></button>
   <a href="postAJob/delete?id={{ u.id }}" onclick="return confirm('Are you sure to remove it?')"><span class="glyphicon glyphicon-trash"></span></a>
-  </td>
-   <td><a href="#view/{{u.id}}" ng-click="getUserAppJob(u.id)">Details</a> </td>    
+  </td> --> 
+   <td><a href="#view/{{u.id}}" ng-click="getUserAppJob(u.id)">Details</a>     
 
 
-
+</td>
 </tr>
 
 
@@ -148,5 +156,5 @@
 </table>
 </div>
 </div>
-</div>
+</div></div>
  

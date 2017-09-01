@@ -22,6 +22,10 @@ myApp.config(function($routeProvider){
 		controller:'BlogController',
 		templateUrl:'blog/Blog.html'
 	})
+	.when('/blog/:id', {
+		templateUrl : 'blog/singleBlog.html',
+		controller : 'BlogController'
+	})
 	.when('/list',{
 		controller:'BlogController',
 		templateUrl:'blog/mylist.html'
@@ -48,9 +52,10 @@ myApp.config(function($routeProvider){
 	.when('/Cforum',{
 		templateUrl:'forum/createForum.html'
 	})
-	.when('/forums/:idid',{
-		controller:'MessageForumController',
-		templateUrl:'forum/singleForum.html'
+	.when('/forums/:param',{
+		
+		templateUrl:'forum/singleForum.html',
+	    controller:'MessageForumController'
 	}) 
 	.when('/users',{
 		controller:'friendController',
@@ -113,7 +118,7 @@ myApp.run(function($cookieStore, $rootScope, $location, UserService, $http) {
 		UserService.logout().then(function(response) {
 			console.log("Logged out successfully..");
 			$rootScope.message = "Logged out Successfully !";
-			$location.path('/login')
+			$location.path('/home')
 		}, function(response) {
 			console.log(response.status);
 		})
@@ -126,7 +131,7 @@ myApp.run(function($cookieStore, $rootScope, $location, UserService, $http) {
 		// restricted page
 
 		var userPages = [ '/users', '/createBlog', '/job', '/profile',
-				'/Blog', '/viewFriendRequest', '/chat' ,'/myforum']
+				'/Blogg', '/viewFriendRequest', '/chat' ,'/myforum']
 		var adminPages = [ "/blog-manage", "/job-manage", "/createjob" ]
 
 		var currentPage = $location.path()

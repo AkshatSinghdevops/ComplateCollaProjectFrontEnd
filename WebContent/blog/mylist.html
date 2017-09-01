@@ -1,8 +1,16 @@
-<p>fff</p>
+<!-- <head>
+ <style>
+body {
+  background-color:#ccc;
+}
+</style> 
+</head> -->
+<center>
+<p class="text-center">Welcome to admin page</p>
  
  <div class="container">
 <div ng-init="getUserBlog()" ng-controller="BlogController as c">
-<table class="table table-hover table-condensed table-bordered">
+<table class="text-default" border="5" bordercolor="blue" align="center"  style="width:1000px; height:200px;  margin:8px;">
 <thead>
 <tr>
 <th>ID</th>
@@ -29,12 +37,13 @@
    <td ng-if="blogDetails.status == 'P'">Pending</td> -->
    
    <td>{{blogDetails.description}}</td>
-   <td ><a href="#list" ng-click="remove(blogDetails.id)">DELETE</a>
- 
-   	
+   <td >
+   <a href="" ng-click="c.remove(blogDetails.id)" class="text-danger"><span class="glyphicon glyphicon-trash" style="color:red; "></a>
+   <a ng-if="blogDetails.status == 'N' " href="" ng-click="blogAccept(blogDetails)">| Accept</a>
+   <a ng-if="blogDetails.status== 'Y'" href="#list" ng-click="blogReject(blogDetails)">| Reject</a>
    </tr>
 	
 
 </table>
 </div>
-</div>
+</div></center>

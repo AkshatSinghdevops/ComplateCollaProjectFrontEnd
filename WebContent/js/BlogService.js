@@ -8,6 +8,8 @@ angular.module('myApp').factory('BlogService', ['$http', '$q', function($http, $
         createBlog: createBlog,
         updateBlog:updateBlog,
         getUserBlog: getUserBlog,
+        deleteBlog:deleteBlog,
+        singleUserBlog:singleUserBlog,
      };
  return factory;
     function fetchAllBlogs() {
@@ -66,6 +68,38 @@ angular.module('myApp').factory('BlogService', ['$http', '$q', function($http, $
             },
             function(errResponse){
                 console.error('Error while updating Blog');
+                deferred.reject(errResponse);
+            }
+        );
+        return deferred.promise;
+    }
+    
+    function deleteBlog(id) {
+    	console.log('id from service', id);
+        var deferred = $q.defer();
+        $http.get('http://localhost:8080/RestController/manage/blog/remove/'+id)
+            .then(
+            function (response) {
+                deferred.resolve(response.data);
+            },
+            function(errResponse){
+                console.error('Error while delete  Blog');
+                deferred.reject(errResponse);
+            }
+        );
+        return deferred.promise;
+    }
+    
+    function  singleUserBlog(id) {
+    	console.log("enter getUserBlog in service"+id)
+        var deferred = $q.defer();
+        $http.get("http://localhost:8080/RestController/singleBlog/"+id)
+            .then(
+            function (response) {
+                deferred.resolve(response.data);
+            },
+            function(errResponse){
+                console.error('Error while fetching Blogs');
                 deferred.reject(errResponse);
             }
         );

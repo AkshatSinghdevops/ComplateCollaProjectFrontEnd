@@ -1,0 +1,40 @@
+<div ng-controller="BlogController as ctrl">
+<div ng-int="">
+<div class="container">
+<div class="page-header">
+<h2 class="text-center" style="text-transform: uppercase;">{{currentBlog.blog_name}}</h2>
+</div>
+<div><strong>Published On: {{currentBlog.date_time| date:'longDate'}}</strong></div>
+<div class="row">
+<div class=col-md-8 col-md-offset-2">
+{{currentBlog.description}}
+</div>
+</div>
+<div>
+<strong>Author: {{currentBlog.user_id}}</strong>
+</div>
+</div>
+</div></div>
+
+
+<div  ng-controller="BlogController as ctrl">
+
+<table class="table">
+<thead>
+<tr>
+<td class="text-primary">Forum Name </td>
+<td class="text-primary">Create Date</td>
+</tr>
+</thead>
+
+<tr ng-repeat=" c in ctrl.currentBlogs" >
+<td >{{c.blog_name}}</td>
+<td>{{c.create_date |  date:'MM/dd/yyyy'}}</td>
+
+<td>
+</table>
+
+</div>
+
+
+

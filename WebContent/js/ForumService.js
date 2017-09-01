@@ -47,7 +47,7 @@ angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, 
  
     function updateChatForum(chatforum, id) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_update_URI+id, chatforum)
+        $http.post(REST_SERVICE_update_URI, chatforum)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -60,9 +60,9 @@ angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, 
         return deferred.promise;
     }
    
-    function singleForum(id) {
+    /*function singleForums(id) {
         var deferred = $q.defer();
-        $http.get('http://localhost:8080/RestController/list_message_forum/',id)
+        $http.get('http://localhost:8080/RestController/list_message_forum/'+id)
             .then(+
             function (response) {
                 deferred.resolve(response.data);
@@ -73,7 +73,7 @@ angular.module('myApp').factory('ForumService', ['$http', '$q', function($http, 
             }
         );
         return deferred.promise;
-    }
+    }*/
    
  
 }]);

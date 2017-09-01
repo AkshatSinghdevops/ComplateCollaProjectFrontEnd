@@ -1,5 +1,5 @@
 
-<div ng-controller="JobController as ctrl">
+<!-- <div ng-controller="JobController as ctrl">
 <div ng-init=" getAllJob() ">
 
 <form class="form-wrapper cf text-center">
@@ -20,8 +20,8 @@
 <tr ng-repeat="u in jobs | filter:query">
 <td >{{ u.title }}</td>
 <td> {{ u.qualification }}</td>
-<td>{{ u.description }}</td>
-<td>{{ u.dateTime }}</td>
+<td>{{ u.description | limitTo:100}}</td>
+<td><span>lastDate:</span>{{ u.dateTime }}</td>
 
 <td>
 
@@ -42,32 +42,52 @@
 </table>
 </div>
 </div>
+</div> -->
+
+<!-- ---------------------- ---------------------- ---------------------- ---------------------- ---------------------- -->
+
+<div ng-controller="JobController as ctrl">
+<div ng-init="getAllJob()">
+<form class="form-wrapper cf text-center">
+  	<input ng-model="query" placeholder="search job">
+	  
+</form>
+<div class="container-solid">
+  <h2 class="text-center">All Jobs List</h2>
+  <div ng-repeat="u in jobs | filter:query">
+  <!-- <div ng-hide="blogDetails.status =='N'"> -->
+  <div class="panel panel-default">
+    <div class="panel-heading text-center"><h3 style="text-transform: uppercase;">{{u.title}}</h3>
+    
+     <div ng-if="u.status=='C'"><h4 class="text-success">Closed</h4></div>
+   <div ng-if="u.status=='V'" >Vacant</div>
+   <div ng-if="u.status !='C' && u.status !='V'" >Not Updated</div>
+    
+    </div>
+    
+    <div ng-maxlength="5" class="panel-body"><span class="glyphicon glyphicon-education text-danger"></span>  {{u.qualification}}
+   
+   </div>
+     <h3 class="text-primary">DESCRIPTION:</h3>
+    <div ng-maxlength="5" class="panel-body">  {{u.description}}
+   
+   </div>
+ 
+
+    <div class="panel-footer"><h3 class="text-success">
+    
+    </h3>  last-Date: {{u.dateTime}}</div>
+    <div class="text-center">
+    <button class="btn btn-success">
+   <a href="#listjob" ng-click="jobApply(u.id)">Clicked-Here-Apply</a>
+   </button>
+    </div>
+  </div>
+  </div>
+  </div>
 </div>
-
-<!-- ---------------------- -->
-<!-- <div ng-controller="JobController as ctrl">
-<div ng-init=" getAllJob() ">
-
-<div class="search">
-<h1>list </h1>
-<label>Search:</label>
-<input ng-model="query" placeholder="search job">
-<label class="fromgroup">by:
-<select></select>
-</label>
 </div>
-<ul class="artistlist">
-<li class="jobs cf" ng-repeat="u in jobs | filter:query">
-<div class="info">
-<h2>{{ u.title }}</h2>
-<h2>{{ u.qualification }}</h2>
-<h2>{{ u.description }}</h2>
-<h2>{{ u.dateTime }}</h2>
 </div>
-
-</ul>
-
-</div></div> -->
 
 
 

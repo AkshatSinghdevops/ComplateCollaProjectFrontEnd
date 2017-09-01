@@ -18,7 +18,7 @@ myApp.controller('JobController', [
 				title : '',
 				qualification : '',
 				status : '',
-				dateTime : '',
+				date_time : '',
 				description : '',
 				errorCode : '',
 				errorMessage : '',
@@ -100,7 +100,7 @@ myApp.controller('JobController', [
 				console.log("Get job..." + id)
 				JobService.getjob(id).then(function(d) {
 					$scope.job = d;
-					$scope.job.dateTime = new Date($scope.job.dateTime);
+					//$scope.job.dateTime = new Date($scope.job.dateTime);
 					// alert($scope.job.date_time);
 
 				}, function(errResponse) {
@@ -116,8 +116,8 @@ myApp.controller('JobController', [
 			$scope.updateJob = function(){
 				JobService.updateJobs($scope.job).then(function(d) {
 					$scope.job = {};
-					$scope.getAllJob()
-					$location.path("/listjob")
+				$scope.getAllJob()
+					//$location.path("/listjob")
 				},
 				function(errResponse){
 					console.error('Error while updating Job')
@@ -220,6 +220,66 @@ myApp.controller('JobController', [
 					});
 
 				};
+				
+				
+
+				$scope.remove = function(id) {
+					
+
+						console.log("remove id is " + id)
+						JobService.removeService(id).then(function(d) {
+							$scope.jobs = d;
+							
+							//alert(JSON.stringify($rootScope.appliedjob))
+						}, function(errResponse) {
+							console.error('Error while fetching Job');
+						});
+
+					};
+				
+					
+//=============================================================================================================================================					
+					
+					$scope.jobAccepts = function(appliedJob) {
+						appliedJob.status = 'Y';
+						JobService.updateAppliedJob(appliedJob).then(function(d) {
+
+							//$location.path("/list")
+						}, function(errResponse) {
+							console.error('Error while Updating appliedJob.');
+						});
+
+					};
+
+					$scope.jobAccept = function(appliedJob) {
+						{
+							console.log('Accepting appliedJob' + appliedJob.id);
+							$scope.jobAccepts(appliedJob);
+						}
+
+					};	
+					
+					$scope.jobRejects = function(appliedJob) {
+						appliedJob.status = 'N';
+						JobService.updateAppliedJob(appliedJob).then(function(d) {
+
+							//$location.path("/blog-manage")
+						}, function(errResponse) {
+							console.error('Error while appliedJob Blog.');
+						});
+
+					};
+					
+					$scope.jobReject = function(appliedJob) {
+						{
+							console.log('RejectingappliedJob' + appliedJob.id);
+							$scope.jobRejects(appliedJob);
+						}
+
+					};
+					
+				
+				
 		} ]);
 
 

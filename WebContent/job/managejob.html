@@ -1,3 +1,5 @@
+
+
 <p> welcome to manage job</p>
 
 <div ng-controller="JobController as ctrl">
@@ -13,11 +15,11 @@
 <label class="control-label col-sm-2">QUALIFICATION</label><div class="col-sm-10"><input required="true" type="text" id="qualification" ng-model="job.qualification">
 </div></div>
  <div class="form-group">
-<label class="control-label col-sm-2">DATE:</label><div class="col-sm-10"><input type="date" format="yyyy/MM/dd" id="date_time" ng-model="job.dateTime">
+<label class="control-label col-sm-2">DATE:</label><div class="col-sm-10"><input type="text"  id="dateTime" ng-model="job.dateTime">
 </div></div>
  <div class="form-group">
-<label class="control-label col-sm-2">STATUS:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option value="C">Closed</option>
-<option value="V">Vacant</option>
+<label class="control-label col-sm-2">STATUS:</label><div class="col-sm-10"><select id="status" ng-model="job.status"><option >C</option>
+<option >V</option>
 </select>
 </div></div>
  <div class="form-group">
@@ -52,15 +54,18 @@
 <tr ng-repeat="u in jobs | filter:searchtext">
 <td ng-bind="u.id">{{ u.id }}</td>
 <td ng-bind="u.title">{{ u.title }}</td>
-<td ng-bind="u.title">{{ u.status}}</td>
+<td ng-bind="u.status">{{ u.status}}</td>
 <td ng-bind="u.qualification" > {{ u.qualification }}</td>
 <td ng-bind="u.description">{{ u.description }}</td>
 <td ng-bind="u.dateTime">{{ u.dateTime }}</td>
 
-<td>
 
-<button type="button" ng-click="jobEdit(u.id)"><a href="#create"></a><span class="glyphicon glyphicon-pencil"></span></button>
-  <a href="postAJob/delete?id={{ u.id }}" onclick="return confirm('Are you sure to remove it?')"><span class="glyphicon glyphicon-trash"></span></a>
+
+<td style='white-space: nowrap'>
+  <a href="" ng-click="remove(u.id)" onclick="return confirm('Are you sure to remove it?')"><span class="glyphicon glyphicon-trash"></span></a>
+  
+  
+  <button type="button" ng-click="jobEdit(u.id)"><a href=""></a><span class="glyphicon glyphicon-pencil"></span></button>
   </td>
       
 

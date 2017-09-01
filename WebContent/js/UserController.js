@@ -265,7 +265,7 @@ myApp
 														$http.defaults.headers.common['Authorization'] = 'Basic '
 																+ $rootScope.currentUser;
 														$location
-																.path('/home');
+																.path('/edit');
 
 													}
 

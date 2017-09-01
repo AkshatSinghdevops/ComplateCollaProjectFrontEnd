@@ -1,8 +1,10 @@
 'use strict';
  
-angular.module('myApp').controller('ForumController', ['$scope', 'ForumService', function($scope, ForumService) {
+angular.module('myApp').controller('ForumController', ['$scope', '$rootScope','ForumService', function($scope, $rootScope,ForumService) {
     var self = this;
     self.chatforum={id:null,user_id:'',message:'',create_date:''};
+    $rootScope.messageforum={id:null,forum_comment:'',forum_id:'',user_id:''};
+    $scope.messageforum={id:null,forum_comment:'',forum_id:'',user_id:''};
     self.chatforums=[];
  
     self.submit = submit;
@@ -36,16 +38,17 @@ angular.module('myApp').controller('ForumController', ['$scope', 'ForumService',
     }
    
     
-    function singleForum(id){
-    	cansole.log(id)
-        ForumService.singleForum(id)
-             .then(
-             fetchAllChatForums,
+  /* function singleForum(id){
+	   console.log("test is defined ",id); 
+        ForumService.singleForums(id)
+             .then(function(d) {
+            	 self.chatforums = d;},
+             //fetchAllChatForums,
              function(errResponse){
                  console.error('Error while updating ChatForum');
              }
          );
-     }
+     }*/
     
     
     function updateChatForum(chatforum, id){
